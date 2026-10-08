@@ -1,0 +1,757 @@
+/* ==========================================================
+   VARIABLES DE COLOR (Basadas en el Logo "El Perro Alegre")
+   ========================================================== */
+:root {
+  --blue-primary: #00509d;     /* Azul oscuro de "El Perro Alegre" */
+  --blue-secondary: #0096c7;   /* Azul claro brillante */
+  --green-accent: #70e000;     /* Verde lima/hoja fresco */
+  --green-dark: #38b000;       /* Verde colina */
+  --text-dark: #1e293b;        /* Gris oscuro elegante */
+  --text-muted: #64748b;       /* Gris medio */
+  --bg-light: #f8fafc;         /* Blanco suave de fondo */
+  --bg-card: #ffffff;          
+  --whatsapp-color: #25d366;  /* Verde oficial WhatsApp */
+  --facebook-color: #1877f2;  /* Azul oficial Facebook */
+
+  --font-main: 'Plus Jakarta Sans', sans-serif;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset inicial */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-light);
+  background-image: url('1.webp'); /* Cambia 'imagen.jpg' por el nombre o ruta de tu archivo */
+  background-size: fit;              /* Ajusta la imagen para cubrir toda la pantalla */
+  background-position: top;         /* Centra la imagen */
+  background-repeat: no-repeat;        /* Evita que la imagen se repita como mosaico */
+  background-attachment: fixed;
+  color: var(--text-dark);
+  line-height: 1.4;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ==========================================================
+   HEADER
+   ========================================================== */
+.header {
+  position: sticky;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  position: relative;
+}
+
+.logo-img {
+  height: 150px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 20px;
+  z-index: 1001;
+  min-width: 260px;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 8px;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: max-height 0.3s ease, padding 0.3s ease, opacity 0.2s ease,
+    transform 0.2s ease, visibility 0.2s ease;
+}
+
+.nav-container.menu-open .nav-menu {
+  max-height: 300px;
+  padding: 8px;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.hamburger-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--blue-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.hamburger-btn:hover {
+  background-color: #e0f2fe;
+  color: var(--blue-secondary);
+}
+
+.hamburger-btn:focus-visible {
+  outline: 3px solid var(--blue-secondary);
+  outline-offset: 3px;
+}
+
+.hamburger-btn .icon-close {
+  display: none;
+}
+
+.nav-container.menu-open .hamburger-btn .icon-open {
+  display: none;
+}
+
+.nav-container.menu-open .hamburger-btn .icon-close {
+  display: block;
+}
+
+.nav-menu a {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.nav-menu a:hover {
+  color: var(--blue-primary);
+}
+
+.btn-nav {
+  background-color: var(--blue-primary);
+  color: #fff !important;
+  padding: 8px 20px;
+  border-radius: 25px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-nav:hover {
+  background-color: var(--blue-secondary);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================
+   HERO SECTION
+   ========================================================== */
+.hero {
+  height: 28rem;
+  padding: 80px 0 70px;
+  background: linear-gradient(135deg, #e0f2fe 0%, #f0fdf4 100%);
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.badge {
+  background-color: rgba(0, 80, 157, 0.1);
+  color: var(--blue-primary);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--blue-primary);
+  margin: 20px 0 15px;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background-color: var(--blue-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 80, 157, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: var(--blue-secondary);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border: 2px solid var(--blue-primary);
+  color: var(--blue-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--blue-primary);
+  color: #fff;
+}
+
+/* ==========================================================
+   SERVICIOS
+   ========================================================== */
+.services-section {
+  padding: 90px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h2 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--blue-primary);
+}
+
+.section-title p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.service-card {
+  background: var(--bg-card);
+  border-radius: 24px;
+  padding: 35px;
+  border: 2px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 80, 157, 0.08);
+}
+
+.featured-card {
+  border-color: var(--blue-primary);
+  background: linear-gradient(180deg, #ffffff 0%, #f0fdf4 100%);
+}
+
+.card-icon {
+  width: 60px;
+  height: 60px;
+  background-color: #e0f2fe;
+  color: var(--blue-primary);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+.highlight-icon {
+  background-color: #dcfce7;
+  color: var(--green-dark);
+}
+
+.card-tag {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--blue-primary);
+  background: #e0f2fe;
+  padding: 5px 12px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+.card-tag.highlight {
+  background: var(--green-dark);
+  color: #fff;
+}
+
+.service-card h3 {
+  font-size: 1.8rem;
+  color: var(--blue-primary);
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.service-desc {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.service-list {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.service-list li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+}
+
+.service-list li i {
+  color: var(--green-dark);
+}
+
+/* Comandos Box */
+.commands-box {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 25px;
+  border: 1px dashed var(--green-dark);
+}
+
+.commands-box h4 {
+  font-size: 0.95rem;
+  color: var(--blue-primary);
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.commands-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.command-pill {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-dark);
+}
+
+.command-pill i {
+  color: var(--blue-secondary);
+}
+
+.card-btn {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  background-color: var(--blue-primary);
+  color: #fff;
+  padding: 14px;
+  border-radius: 14px;
+  font-weight: 700;
+  transition: var(--transition);
+}
+
+.card-btn:hover {
+  background-color: var(--blue-secondary);
+}
+
+.nav-menu .btn-nav {
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.btn-highlight {
+  background-color: var(--green-dark);
+}
+
+.btn-highlight:hover {
+  background-color: #2b8a00;
+}
+
+/* ==========================================================
+   SECCIÓN ENTRENADOR & BOSQUE DE PINOS (ANIMACIÓN)
+   ========================================================== */
+.trainer-section {
+  height: 25rem;
+  position: relative;
+  background-color: #0d2818; /* Verde noche bosque */
+  color: #ffffff;
+  padding: 30px 0 90px;
+  overflow: hidden;
+}
+
+.pine-forest-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.pine-forest-bg svg {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 240px;
+}
+
+.pine-back path {
+  fill: #164027;
+}
+
+.pine-front path {
+  fill: #225c38;
+  animation: pineSway 4s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+
+@keyframes pineSway {
+  0% { transform: skewX(0deg); }
+  100% { transform: skewX(1.8deg); }
+}
+
+.trainer-container {
+  position: relative;
+  z-index: 2;
+}
+
+.trainer-card {
+  max-width: 720px;
+  margin: 20px auto 0 auto;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 24px;
+  padding: 20px;
+  text-align: center;
+}
+
+.trainer-tag {
+  color: var(--green-accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.trainer-card h2 {
+  font-size: 2.3rem;
+  margin: 12px 0 20px;
+}
+
+.trainer-bio {
+  color: #e2e8f0;
+  font-size: 1.05rem;
+  margin-bottom: 30px;
+}
+
+.facebook-box p {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin-bottom: 15px;
+}
+
+.btn-facebook {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--facebook-color);
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(24, 119, 242, 0.4);
+}
+
+.btn-facebook:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(24, 119, 242, 0.6);
+}
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+.footer {
+  background-color: #06140c;
+  color: #94a3b8;
+  padding: 25px 0;
+  font-size: 0.9rem;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-contact a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ==========================================================
+   BOTÓN FLOTANTE DE WHATSAPP
+   ========================================================== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--whatsapp-color);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  z-index: 1000;
+  text-decoration: none;
+  transition: var(--transition);
+  animation: pulseWhatsApp 2s infinite;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-tooltip {
+  position: absolute;
+  right: 70px;
+  background-color: #0f172a;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: var(--transition);
+  font-weight: 600;
+}
+
+.whatsapp-float:hover .whatsapp-tooltip {
+  opacity: 1;
+}
+
+@keyframes pulseWhatsApp {
+  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* ==========================================================
+   OPTIMIZACIÓN PARA PANTALLAS MÓVILES (Smartphones y Tablets)
+   ========================================================== */
+@media (max-width: 768px) {
+  .nav-menu {
+    top: 100%;
+    right: 0;
+    left: 0;
+    width: auto;
+    min-width: 0;
+    border-radius: 0 0 16px 16px;
+    text-align: center;
+  }
+
+  .nav-menu .btn-nav {
+    width: 80%;
+    margin: 4px auto;
+  }
+
+  .nav-container {
+    padding: 10px 20px;
+  }
+
+  .logo-img {
+    height: 85px; /* Reduce ligeramente el logo */
+    width: auto;  
+  }
+
+  /* 2. Hero Section */
+  .hero {
+    padding: 50px 0 40px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    line-height: 1.25;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* 3. Sección de Servicios */
+  .services-section {
+    padding: 50px 0;
+  }
+
+  .section-title h2 {
+    font-size: 1.8rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr; /* Fuerza 1 sola columna en celular */
+    gap: 20px;
+  }
+
+  .service-card {
+    padding: 25px 20px;
+  }
+
+  /* Adaptación de Comandos en Móvil */
+  .commands-grid {
+    gap: 6px;
+  }
+
+  .command-pill {
+    font-size: 0.78rem;
+    padding: 5px 8px;
+  }
+
+  /* 4. Sección Entrenador */
+  .trainer-section {
+    padding: 60px 0 100px 0; /* Agregamos espacio abajo para que no choque con los pinos ni el footer */
+    height: auto;
+    overflow: visible;
+  }
+
+  .trainer-card {
+    margin: 0 auto; /* Eliminamos márgenes superiores excesivos */
+    padding: 30px 20px; /* Reducimos ligeramente el relleno interno */
+    width: 90%; /* Asegura que no toque los bordes laterales de la pantalla */
+  }
+
+  .trainer-card h2 {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .btn-facebook {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* 5. Footer */
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  /* 6. Botón Flotante de WhatsApp */
+  .whatsapp-float {
+    bottom: 18px;
+    right: 18px;
+    width: 52px;
+    height: 52px;
+    font-size: 26px;
+  }
+
+  /* Oculta la etiqueta de texto en móviles para que no tape contenido */
+  .whatsapp-tooltip {
+    display: none; 
+  }
+}
+
+/* Dispositivos muy pequeños (380px o menos, ej. iPhone SE) */
+@media (max-width: 380px) {
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .service-card {
+    padding: 20px 15px;
+  }
+
+  .command-pill {
+    width: 100%; /* Cada comando toma su propia línea en pantallas mini */
+    justify-content: flex-start;
+  }
+}
