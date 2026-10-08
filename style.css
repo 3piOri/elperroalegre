@@ -160,7 +160,7 @@ body {
 }
 
 .btn-nav {
-  background-color: var(--blue-primary);
+  background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
   color: #fff !important;
   padding: 8px 20px;
   border-radius: 25px;
@@ -512,13 +512,21 @@ body {
 .trainer-bio {
   color: #e2e8f0;
   font-size: 1.05rem;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+}
+
+.social-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px; /* separación en escritorio */
+  flex-wrap: wrap;
 }
 
 .facebook-box p {
   font-size: 0.9rem;
   color: #94a3b8;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
 .btn-facebook {
@@ -540,6 +548,31 @@ body {
   box-shadow: 0 6px 20px rgba(24, 119, 242, 0.6);
 }
 
+.instagram-box p {
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin-bottom: 18px;
+}
+
+.btn-instagram {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #e1306c;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(214, 41, 118, 0.4);
+}
+
+.btn-instagram:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(214, 41, 118, 0.6);
+}
+
 /* ==========================================================
    FOOTER
    ========================================================== */
@@ -553,15 +586,10 @@ body {
 .footer-content {
   display: flex;
   justify-content: center;
-  align-text: center;
+  text-align: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 15px;
-}
-
-.footer-contact a {
-  color: #fff;
-  text-decoration: none;
 }
 
 /* ==========================================================
@@ -698,7 +726,7 @@ body {
 
   /* 4. Sección Entrenador */
   .trainer-section {
-    padding: 60px 0 100px 0; /* Agregamos espacio abajo para que no choque con los pinos ni el footer */
+    padding: 60px 0 50px 0; /* Agregamos espacio abajo para que no choque con los pinos ni el footer */
     height: auto;
     overflow: visible;
   }
@@ -719,6 +747,16 @@ body {
     justify-content: center;
   }
 
+  .social-buttons {
+  flex-direction: column;
+  gap: 12px; /* separación en móvil */
+}
+
+.social-buttons .btn-facebook,
+.social-buttons .btn-instagram {
+  width: 100%;
+  justify-content: center;
+}
   /* 5. Footer */
   .footer-content {
     flex-direction: column;
